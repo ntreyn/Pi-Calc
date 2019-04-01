@@ -3,24 +3,21 @@
 import random
 
 def in_circle(x_in, y_in):
-    term1 = (x_in - 0.5) ** 2
-    term2 = (y_in - 0.5) ** 2
-    if term1 + term2 > 0.25:
+    LHS = (x_in - 0.5) ** 2 + (y_in - 0.5) ** 2
+    RHS = 0.5 ** 2
+    if LHS > RHS:
         return False
     return True
 
 def picalc(n):
     inside_sum = 0
-    outside_sum = 0
 
     for i in range(n):
         x = random.uniform(0, 1)
         y = random.uniform(0, 1)
-        result = in_circle(x, y)
-        if result:
+        if in_circle(x,y):
             inside_sum += 1
-        else:
-            outside_sum += 1
+
     return(4 * inside_sum / n)
 
 def main():
@@ -30,6 +27,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
